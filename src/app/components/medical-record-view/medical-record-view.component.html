@@ -14,15 +14,15 @@
           <!-- Medical Record Attributes -->
           <div class="mb-6">
             <label class="text-gray-600">Condition:</label>
-            <p class="text-gray-800">{{ medicalRecord.title }}</p>
+            <p class="text-gray-800">{{ medicalRecord.diagnosis }}</p>
           </div>
           <div class="mb-6">
             <label class="text-gray-600">Description:</label>
-            <p class="text-gray-800">{{ medicalRecord.desc }}</p>
+            <p class="text-gray-800">{{ medicalRecord.description }}</p>
           </div>
           <div class="mb-6">
             <label class="text-gray-600">Start Date:</label>
-            <p class="text-gray-800">{{ convertToReadableTime(medicalRecord.start_date) }}</p>
+            <p class="text-gray-800">{{ convertToReadableTime(medicalRecord.record_date) }}</p>
           </div>
           <div class="mb-6">
             <label class="text-gray-600">Status:</label>

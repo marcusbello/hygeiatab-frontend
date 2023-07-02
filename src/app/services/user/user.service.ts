@@ -11,17 +11,17 @@ import { AuthService } from '../auth/auth.service';
 })
 export class UserService {
 
-  private apiUrl = environment.baseURL + '/users/';
+  private apiUrl = environment.baseURL + '/patient';
   constructor( private httpClient: HttpClient, private authService: AuthService) { } 
 
   // userCreate handles the user creation service
   userCreate(req: RegisterRequest): Observable<RegisterResponse | RegisterError> {
-    return this.httpClient.post<RegisterResponse | RegisterError>(this.apiUrl, req);
+    return this.httpClient.post<RegisterResponse | RegisterError>(this.apiUrl + '/register', req);
   }
 
   userInfo(): Observable<User> {
     console.log('get_user_info')
-    return this.httpClient.get<User>(environment.baseURL + '/user')
+    return this.httpClient.get<User>(this.apiUrl + '/me')
   }
 
 }

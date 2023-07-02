@@ -4,8 +4,8 @@ export interface LoginRequest {
   }
   
 export interface LoginResponse {
-    refresh: string;
-    access: string;
+    access_token: string;
+    token_type: string;
     // Additional properties for successful login response
   }
   
@@ -13,7 +13,3 @@ export interface LoginError {
     error: string;
     // Additional properties for error response
   }
-
-export interface RefreshResponse {
-  access: string;
-}

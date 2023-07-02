@@ -30,18 +30,22 @@ export class LoginComponent implements OnInit {
   // loginReq 
   login(){
     if(this.formGroup.valid){
-      const loginRequest: LoginRequest = {
-        username: this.formGroup.value['email'],
-        password: this.formGroup.value['password']
-      };
+      const formData = new FormData();
+      formData.append('username', this.formGroup.value['email']);
+      formData.append('password', this.formGroup.value['password']);
+      // 
+      // const loginRequest: LoginRequest = {
+      //   username: this.formGroup.value['email'],
+      //   password: this.formGroup.value['password']
+      // };
       // login service
-      this.authService.login(loginRequest).subscribe(
+      this.authService.login(formData).subscribe(
         (response: LoginResponse) => {
           
           // Handle successful login response
           console.log('Login successful');
-          console.log(response.access)
-          this.router.navigate(['medical-records'])
+          console.log(response.access_token)
+          this.router.navigate(['dashboard'])
           // Redirect to another page, set token in local storage, etc.
         },
         (error: LoginError) => {

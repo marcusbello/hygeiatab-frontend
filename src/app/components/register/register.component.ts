@@ -20,9 +20,11 @@ export class RegisterComponent implements OnInit {
  
    initForm() {
      this.formGroup = new FormGroup<any>({
-       name: new FormControl('', [Validators.required]),
-       username: new FormControl('', [Validators.required]),
+       first_name: new FormControl('', [Validators.required]),
+       last_name: new FormControl('', [Validators.required]),
        email: new FormControl('', [Validators.required]),
+       gender: new FormControl('',[Validators.required]),
+       dob: new FormControl('',[Validators.required]),
        password: new FormControl('', [Validators.required]),
        confirmPassword: new FormControl('', [Validators.required]),
      })
@@ -32,9 +34,10 @@ export class RegisterComponent implements OnInit {
   register() {
     if(this.formGroup.valid){
       const registerRequest: RegisterRequest = {
-        first_name: this.getFirstName(this.formGroup.value['name']),
-        last_name: this.getLastName(this.formGroup.value['name']),
-        username: this.formGroup.value['username'],
+        first_name: this.formGroup.value['name'],
+        last_name: this.formGroup.value['name'],
+        gender: this.formGroup.value['gender'],
+        dob: this.formGroup.value['dob'],
         email: this.formGroup.value['email'],
         password: this.formGroup.value['password']
       };
@@ -56,15 +59,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  private getFirstName(fullName: string): string {
-    const names = fullName.trim().split(' ');
-    return names[0];
-  }
 
-  private getLastName(fullName: string): string {
-    const names = fullName.trim().split(' ');
-    return names[names.length - 1];
-  }
 
 }
 

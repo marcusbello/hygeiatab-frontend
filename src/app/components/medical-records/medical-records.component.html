@@ -5,18 +5,21 @@
     <div *ngFor="let record of medicalRecords$ | async">
     <ul class="space-y-4">
       <li class="bg-white rounded-md shadow-md p-4">
-        <p class="text-gray-600">Condition: {{ record.title }}</p>
-        <p class="text-gray-600">Start Date: {{ convertToReadableTime(record.start_date) }}</p>
+        <p class="text-gray-600">Condition: {{ record.diagnosis }}</p>
+        <p class="text-gray-600">Record Date: {{ convertToReadableTime(record.record_date) }}</p>
         <p class="text-gray-600">Status: Active</p>
+        <p class="text-gray-600">Treatments: 
+          <li *ngFor="let treatment of record.treatments">{{ treatment.treatment_title }}</li>
+        </p>
         <p class="text-gray-600">Medications: 
-          <li *ngFor="let treatment of record.treatments">{{ treatment }}</li>
+          <li *ngFor="let medication of record.medications">{{ medication.medication_name }}</li>
         </p>
         
         <!-- Options for Medical Record -->
         <div class="mt-4">
-          <button [routerLink]="['/medical-record', record.id]" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">View Details</button>
+          <button [routerLink]="['/medical-record', record.id]" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">View</button>
           <button class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded ml-2">Add Treatment</button>
-        </div>
+            </div>
       </li>
       
       <!-- More Medical Records -->

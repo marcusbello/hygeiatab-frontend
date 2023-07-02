@@ -13,18 +13,17 @@ export class AuthService {
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false)
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
-  private apiUrl = environment.baseURL + '/login/';
+  private apiUrl = environment.baseURL + '/login';
   constructor(private httpClient: HttpClient ) {
     const accessToken = localStorage.getItem('accessToken')
     this._isLoggedIn$.next(!!accessToken)
    }
 
   // login service
-  login(req: LoginRequest): Observable<LoginResponse> {
-    return this.httpClient.post<LoginResponse>(this.apiUrl, req).pipe(
+  login(formData: FormData): Observable<LoginResponse> {
+    return this.httpClient.post<LoginResponse>(this.apiUrl, formData).pipe(
       tap((response: LoginResponse) => {
-        localStorage.setItem('accessToken', response.access)
-        localStorage.setItem('refreshToken', response.refresh)
+        localStorage.setItem('accessToken', response.access_token)
         this._isLoggedIn$.next(true)
       })
     )
@@ -32,13 +31,13 @@ export class AuthService {
   }
 
  
-  getTokenExpiration(token: string): number | null {
-    // const accessToken = this.getAccessToken();
+  // getTokenExpiration(token: string): number | null {
+  //   // const accessToken = this.getAccessToken();
 
-    const decodedToken: any = jwt_decode(token);
-    const expirationTime = decodedToken.exp * 1000; // Convert seconds to milliseconds
-    return expirationTime;
-  }
+  //   const decodedToken: any = jwt_decode(token);
+  //   const expirationTime = decodedToken.exp * 1000; // Convert seconds to milliseconds
+  //   return expirationTime;
+  // }
 
   
 }

@@ -1,16 +1,25 @@
+import { MedicalRecord } from "./medical-record";
+
 export interface RegisterRequest {
-    first_name: string;
-    last_name: string
-    username: string;
-    email: string;
-    password: string;
-  }
+  email:      string;
+  first_name: string;
+  last_name:  string;
+  gender:     string;
+  dob:        Date;
+  password:   string;
+}
   
 export interface RegisterResponse {
-    id: number
-    username: string;
-    email: string;
-  }
+  email:           string;
+  first_name:      string;
+  last_name:       string;
+  gender:          string;
+  dob:             Date;
+  id:              number;
+  is_active:       boolean;
+  medical_records: MedicalRecord[];
+}
+
   
 export interface RegisterError {
     error: string;

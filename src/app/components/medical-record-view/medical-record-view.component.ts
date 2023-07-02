@@ -26,7 +26,7 @@ export class MedicalRecordViewComponent implements OnInit{
     this.medicalRecord$ = this.medicalRecordService.getMedicalRecord(Id);
   }
 
-  convertToReadableTime(time: string): string | null {
+  convertToReadableTime(time: Date): string | null {
     if(!time){
       return '';
     }

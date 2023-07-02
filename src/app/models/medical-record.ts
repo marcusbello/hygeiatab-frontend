@@ -1,9 +1,16 @@
+import { Medication } from "./medication";
+import { Treatment } from "./treatment";
+
 export interface MedicalRecord {
-    id: number
-    title: string
-    desc: string
-    start_date: string
-    end_date: any
-    created_by: number
-    treatments: string[]
-  }
+  record_date:         Date;
+  record_type:         string;
+  healthcare_provider: string;
+  description:         string;
+  diagnosis:           string;
+  symptoms:            string;
+  attachments:         any[];
+  id:                  number;
+  patient_id:          number;
+  treatments:          Treatment[];
+  medications:         Medication[];
+}

@@ -22,7 +22,7 @@ export class MedicalRecordsComponent {
   }
 
 
-  convertToReadableTime(time: string): string | null {
+  convertToReadableTime(time: Date): string | null {
     if(!time){
       return '';
     }

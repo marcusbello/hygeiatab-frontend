@@ -16,7 +16,7 @@ export class UsernavComponent  {
   isMenuHidden: boolean = true;
 
   constructor(private userService:UserService) {
-    this.getUserName()
+    // this.getUserName()
   }
 
   toggleMenu() {
@@ -27,13 +27,13 @@ export class UsernavComponent  {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  getUserName(){
-    this.userService.userInfo().pipe(
-      tap((response: User) => {
-        return response.first_name
-      })
-    )
-  }
+  // getUserName(){
+  //   this.userService.userInfo().pipe(
+  //     tap((response: User) => {
+  //       return response.first_name
+  //     })
+  //   )
+  // }
 
  
 }

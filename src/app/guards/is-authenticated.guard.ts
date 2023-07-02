@@ -17,7 +17,7 @@ export class isAuthenticatedGuard implements CanActivate {
     }
 
     // Access token is missing or expired, redirect to login
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
     return false;
   }
 }

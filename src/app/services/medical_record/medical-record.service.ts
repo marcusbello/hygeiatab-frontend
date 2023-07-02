@@ -8,7 +8,7 @@ import { MedicalRecord } from 'src/app/models/medical-record'
   providedIn: 'root'
 })
 export class MedicalRecordService {
-  path = environment.baseURL + '/medical_records/'
+  path = environment.baseURL + '/medical-record/'
 
   constructor(private httpClient: HttpClient) {
    }
