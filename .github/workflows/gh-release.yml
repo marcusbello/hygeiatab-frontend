@@ -27,5 +27,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
-          branch: gh-pages
+          branch: master
           folder: dist/frontend # Replace with the actual folder path of your Angular project
