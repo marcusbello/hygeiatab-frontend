@@ -1,3 +1,3 @@
 # HygeiaTab Frontend Project
 
-### Link : `https://hygeiatab-frontend-marcusbello.vercel.app`
+### Link : `https://hygeiatab.app`
