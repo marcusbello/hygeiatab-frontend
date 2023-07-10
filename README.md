@@ -1,4 +1,4 @@
 # HygeiaTab Frontend Project
 
 ### Link : 
-`https://hygeiatab.app`
+https://hygeiatab.com
