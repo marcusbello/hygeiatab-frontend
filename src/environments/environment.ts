@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    baseURL: 'http://localhost:3666'
+    baseURL: 'https://hygeiatabapi-1-v7713870.deta.app/'
 };
